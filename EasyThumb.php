@@ -80,7 +80,7 @@ class EasyThumb {
 
 		// Generate query
 		foreach($p AS $type => $value)
-			$u[] = ($type != 'url' ? '&amp;' : '').$type.'='.$value;
+			$u[] = ($type != 'url' ? '&amp;' : '').$type.'='.($type == 'url' ? urlencode($value) : $value);
 
 		return implode('', $u);
 	}
