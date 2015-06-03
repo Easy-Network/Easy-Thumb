@@ -28,6 +28,9 @@ EasyThumb::api('APIKEY', 'SECRETKEY');
 // Set thumb type
 EasyThumb::type(EasyThumb::TYPE_FULL);
 
+// Set view (desktop, tablet or mobile)
+EasyThumb::type(EasyThumb::VIEW_MOBILE);
+
 // Set wait url
 EasyThumb::wait('http://www.wait.com/logo.png');
 
