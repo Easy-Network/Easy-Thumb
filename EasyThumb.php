@@ -15,9 +15,14 @@ class EasyThumb {
 	const SIZE_560x420 = '560x420';
 	const SIZE_640x480 = '640x480';
 
+	const VIEW_DESKTOP = 'desktop';
+	const VIEW_TABLET = 'tablet';
+	const VIEW_MOBILE = 'mobile';
+
 	private static $apiKey;
 	private static $apiSecret;
-	private static $type;
+	private static $type = self::TYPE_THUMB;
+	private static $view = self::VIEW_DESKTOP;
 	private static $wait;
 
 	public static function api($apiKey, $apiSecret)
@@ -28,7 +33,12 @@ class EasyThumb {
 
 	public static function type($type)
 	{
-		self::$type = in_array($type, array(1, 2, 3)) ? $type : 1;
+		self::$type = in_array($type, array(self::TYPE_THUMB, self::TYPE_3D, self::TYPE_FULL)) ? $type : self::TYPE_THUMB;
+	}
+
+	public static function view($view)
+	{
+		self::$view = in_array($view, array(self::VIEW_DESKTOP, self::VIEW_TABLET, self::VIEW_MOBILE)) ? $view : self::VIEW_DESKTOP;
 	}
 
 	public static function wait($wait)
@@ -62,6 +72,7 @@ class EasyThumb {
 
 		$p['url'] = $url;
 		$p['size'] = $size;
+		$p['view'] = self::$view;
 
 		if(self::$type == self::TYPE_FULL)
 			$p['size'] = substr($p['size'], 0, strpos($p['size'], 'x'));
