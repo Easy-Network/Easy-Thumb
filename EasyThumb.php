@@ -14,6 +14,7 @@ class EasyThumb {
 	const SIZE_320x240 = '320x240';
 	const SIZE_560x420 = '560x420';
 	const SIZE_640x480 = '640x480';
+	const SIZE_800x600 = '800x600';
 
 	const VIEW_DESKTOP = 'desktop';
 	const VIEW_TABLET = 'tablet';
